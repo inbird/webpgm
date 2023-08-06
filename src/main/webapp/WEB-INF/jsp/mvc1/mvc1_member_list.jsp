@@ -5,12 +5,13 @@
 <title>MVC1 회원목록</title>
 </head>
 <body>
+MVC1 회원 리스트
 <br><br>
 <table border='1'>
 	<th>회원ID</th>
 	<th>회원성명</th>
 	<th>회원나이</th>
-    <c:forEach var="mem" items="${ReqSetMembers}">
+    <c:forEach var="mem" items="${memberList}">
         <tr>
             <td> ${mem.userId}</td>
             <td> ${mem.userName}</td>

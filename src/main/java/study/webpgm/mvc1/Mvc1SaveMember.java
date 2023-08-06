@@ -26,7 +26,7 @@ public class Mvc1SaveMember extends HttpServlet {
         memRepository.insMem(member);
 
         List<Member> memberList = memRepository.selAllMem();
-        request.setAttribute("ReqSetMembers", memberList);
+        request.setAttribute("memberList", memberList);
 
         String viewFile = "/WEB-INF/jsp/mvc1/mvc1_member_list.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewFile);
