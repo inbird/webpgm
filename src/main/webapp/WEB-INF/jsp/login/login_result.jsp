@@ -7,30 +7,29 @@
 
 <body>
 <%
-    //순수 JSP문법 이용
     String result = (String)request.getAttribute("logInUser");
     if( result != "" ){
 %>
-${logInUser}님 반갑습니다.
+${logInUser}님 반갑습니다(JSP문법)
 <%
     }else{
 %>
-아이디나 비밀번호를 다시 확인해 주시기 바랍니다.
+아이디나 비밀번호를 다시 확인해 주시기 바랍니다(JSP문법)
 <%
     }
 %>
 <br><br><br>
-<c:if test="${logInUser == ''}">
+    <c:if test="${logInUser == ''}">
     <p>
-        아이디나 비밀번호를 다시 확인해 주시기 바랍니다22222
+        아이디나 비밀번호를 다시 확인해 주시기 바랍니다(JTL문법)
     </p>
     </c:if>
 
     <c:if test="${logInUser != ''}">
-    <p>${logInUser}님 반갑습니다22222</p>
+    <p>${logInUser}님 반갑습니다(JTL문법)</p>
     </c:if>
  <br><br><br>
 
-<a href="http://localhost:8080/login">초기화면으로 이동</a>
+<a href="http://localhost:8080/login">초기화면</a>
 </body>
 </html>

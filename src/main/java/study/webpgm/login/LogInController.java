@@ -55,7 +55,26 @@ public class LogInController {
 
         model.addAttribute("logInUser", logInUser);
         return "/jsp/login/login_result";
-//        return "redirect:/";
     }
+
+    @RequestMapping("/login/logout")
+    public String logOut(HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        if (session != null) {
+            session.invalidate();
+        }
+
+        return "/jsp/login/main";
+    }
+
+    @RequestMapping("/login/member/member_list")
+    public String logInMemberList(Model model) {
+
+        List<Member> memberList = memRepository.selAllMem();
+        model.addAttribute("memberList", memberList);
+        return "/jsp/login/member/member_list";
+    }
+
 
 }
