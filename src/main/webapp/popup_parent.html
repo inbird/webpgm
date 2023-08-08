@@ -1,0 +1,32 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>오늘은 그만 띄움</title>
+  <script>
+  function getCookie( name ){
+          var nameOfCookie = name + "=";
+          var x = 0;
+          while ( x <= document.cookie.length )
+          {
+                  var y = (x+nameOfCookie.length);
+                  if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+                          if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+                                  endOfCookie = document.cookie.length;
+                          return unescape( document.cookie.substring( y, endOfCookie ) );
+                  }
+                  x = document.cookie.indexOf( " ", x ) + 1;
+                  if ( x == 0 )
+                          break;
+          }
+          return "";
+  }
+
+  if(getCookie("today") != "Y"){
+    window.open('popup.html', 'new_window', 'toolbar=no, width=400,height=434,status=yes, menubar=no, scrollbars=no');
+  }
+</script>
+</head>
+<BODY>
+자동 팝업 부모창!!
+</BODY>
+</html>

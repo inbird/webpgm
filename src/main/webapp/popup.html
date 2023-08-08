@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script language="javascript">
+
+  function setCookie(name, value, expiredays){
+   var todayDate = new Date();
+   todayDate.setDate(todayDate.getDate() + expiredays);
+   document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+  }
+
+  function closeWin(){
+   if(document.checkClose.Notice.checked){
+    setCookie( "today", "Y" , 1);
+   }
+   self.close();
+  }
+</script>
+</head>
+<body>
+<form name="checkClose">
+  긴급 공지!!<br><br><br>
+  서버 장비 교체로 서비스 중단 예정<br><br><br>
+  <input type="checkbox" name="Notice">오늘 하루 그만 보기
+  <br><a href=javascript:closeWin()>창닫기</a>
+</form>
+
+</body>
+</html>

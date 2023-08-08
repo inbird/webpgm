@@ -11,10 +11,10 @@ public class LogTest {
 
     @GetMapping("/log")
     public void log(){
-        log.trace("trace message");
-        log.debug("debug message");
-        log.info("info message"); // default
-        log.warn("warn message");
-        log.error("error message");
+        log.trace("trace : {}", "trace message");
+        log.debug("debug : {}", "debug message");
+        log.info("info : {}", "info message");
+        log.warn("warn : {}", "warn message");
+        log.error("error : {}", "error message");
     }
 }
