@@ -29,6 +29,10 @@ dependencies {
 	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
 	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
 	//jsp관련 dependency
+
+	//mysql jdbc 설치
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.27'
+
 }
 
 tasks.named('test') {
