@@ -17,9 +17,15 @@ repositories {
 }
 
 dependencies {
+
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.projectlombok:lombok:1.18.22'
-	implementation 'org.projectlombok:lombok:1.18.22'
+	//lombok 제거 및 추가(compileOnly,annotationProcessor)
+    //implementation 'org.projectlombok:lombok:1.18.22'
+	//implementation 'org.projectlombok:lombok:1.18.22'
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
@@ -32,6 +38,9 @@ dependencies {
 
 	//mysql jdbc 설치
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.27'
+
+	//mybatis 의존성 추가
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
 
 }
 
