@@ -36,11 +36,11 @@ dependencies {
 	implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
 	//jsp관련 dependency
 
-	//mysql jdbc 설치
+	//mysql jdbc
 	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.27'
 
-	//mybatis 의존성 추가
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+	//mybatis. SPRING 3.0 이상일 경우
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
 
 }
 
