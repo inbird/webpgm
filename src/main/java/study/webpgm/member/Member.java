@@ -5,6 +5,10 @@ public class Member {
     private String userName;
     private int userAge;
 
+    public Member() {
+    }
+
+
     public Member(String userId, String userName, int userAge) {
         this.userId = userId;
         this.userName = userName;
@@ -33,5 +37,14 @@ public class Member {
 
     public void setUserAge(int userAge) {
         this.userAge = userAge;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userAge=" + userAge +
+                '}';
     }
 }

@@ -1,11 +1,12 @@
 package study.webpgm.jpa;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import study.webpgm.jpa.domain.Person;
 import study.webpgm.jpa.domain.PersonRepository;
 
+import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -18,11 +19,30 @@ public class JpaController {
     }
 
     @GetMapping("/jpa/save")
-    public Person getUser(){
-        Person person = new Person("홍길동", "02-123-1234", 30);
-        Person savePerson = personRepository.save(person);
-        return savePerson ;
+    public Person savePerson( String personName, String personTel, int personAge){
+        Person person = new Person(personName, personTel, personAge);
+        return personRepository.save(person);
     }
 
+    @GetMapping("/jpa/update")
+    public Person updatePerson(Long personId, String personName, String personTel, int personAge){
+        Person person = new Person(personName, personTel, personAge);
+        return personRepository.update(personId, person);
+    }
+
+    @GetMapping("/jpa/findById")
+    public Optional<Person> findById(Long personId){
+        return personRepository.findById(personId);
+    }
+
+    @GetMapping("/jpa/findAll")
+    public List<Person> findAll(){
+        return personRepository.findAll();
+    }
+
+    @GetMapping("/jpa/findNameLIke")
+    public List<Person> findNameLIke(String personName){
+        return personRepository.findNameLIke(personName);
+    }
 
 }

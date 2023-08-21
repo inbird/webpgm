@@ -2,6 +2,7 @@ package study.webpgm.req;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import study.webpgm.member.Member;
 import java.io.IOException;
 import java.util.Map;
 
+//@Slf4j
 @Controller
 public class ReqController {
     private Logger log = LoggerFactory.getLogger(getClass());

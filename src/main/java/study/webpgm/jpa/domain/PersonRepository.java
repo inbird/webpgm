@@ -6,9 +6,12 @@ import java.util.Optional;
 public interface PersonRepository {
     Person save(Person person);
 
-    void update(Long personId, Person updatePerson);
+    Person update(Long personId, Person updatePerson);
 
     Optional<Person> findById(Long id);
 
     List<Person> findAll();
+
+    List<Person> findNameLIke(String personName);
+
 }
