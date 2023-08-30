@@ -64,13 +64,15 @@ MVC2 회원 리스트
 	<th>회원나이</th>
     <c:forEach var="mem" items="${memberList}">
         <tr>
-            <td> ${mem.userId}</td>
+            <td> ${mem.userId} </td>
             <td> ${mem.userName}</td>
             <td> ${mem.userAge}</td>
         </tr>
     </c:forEach>
 </table>
 <br><br>
+<div id="result"></div>
+<br><br><br><br>
 <a href="/jsp_test.html">JSP 테스트메인</a><br><br>
 <a href="/mvc1/new_member">MVC1 회원등록</a><br><br>
 <a href="/mvc2/new_member">MVC2 회원등록</a><br><br>

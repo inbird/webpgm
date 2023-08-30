@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
-@Transactional
+//@Repository
+//@Transactional
 public class JpaPersonRepository implements PersonRepository {
     private final EntityManager em;
 
