@@ -16,7 +16,7 @@ public class ConnectTest {
 
     public static void main(String[] args) throws SQLException {
 
-        //driveManagerSqlTest();
+        driveManagerSqlTest();
         makeConnectionWithDriveManager();
         makeConnectionWithDriveManagerDataSource();
         makeConnectionPoolWithHikariDataSource();
