@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-@Data
+//@Data
 @Entity
 @Table(name="jpa_person")
 @Getter @Setter
@@ -33,4 +33,10 @@ public class Person {
         this.personAge = personAge;
     }
 
+    public Person(Long id, String personName, String personTel, Integer personAge) {
+        this.personId = id;
+        this.personName = personName;
+        this.personTel = personTel;
+        this.personAge = personAge;
+    }
 }

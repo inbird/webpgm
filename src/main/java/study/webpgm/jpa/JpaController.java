@@ -1,5 +1,6 @@
 package study.webpgm.jpa;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import study.webpgm.jpa.domain.Person;
@@ -10,6 +11,7 @@ import java.util.Optional;
 
 
 @RestController
+@Slf4j
 public class JpaController {
 
     private final PersonRepository personRepository;
@@ -17,6 +19,12 @@ public class JpaController {
     public JpaController(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
+
+    @GetMapping("/jpa/test")
+    public void testJpa(){
+        personRepository.testJpa();
+    }
+
 
     @GetMapping("/jpa/save")
     public Person savePerson( String personName, String personTel, int personAge){
@@ -43,6 +51,12 @@ public class JpaController {
     @GetMapping("/jpa/findNameLIke")
     public List<Person> findNameLIke(String personName){
         return personRepository.findNameLIke(personName);
+    }
+
+    @GetMapping("/jpa/test2")
+    public String testJpql(){
+        personRepository.testJpql();
+        return "JPQL TEST OK!!!";
     }
 
 }

@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 
-@Transactional
-@Repository
+//@Transactional
+//@Repository
 @RequiredArgsConstructor
 public class JpaPersonRepositoryV2 implements PersonRepository {
 
@@ -45,6 +45,16 @@ public class JpaPersonRepositoryV2 implements PersonRepository {
     public List<Person> findNameLIke(String personName) {
        return springDataJpaPersonRepository.findByPersonNameLike("%"+personName+"%");
        //return springDataJpaPersonRepository.findPersons("%"+personName+"%" );
+
+    }
+
+    @Override
+    public void testJpa() {
+
+    }
+
+    @Override
+    public void testJpql() {
 
     }
 }

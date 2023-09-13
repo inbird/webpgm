@@ -14,4 +14,8 @@ public interface PersonRepository {
 
     List<Person> findNameLIke(String personName);
 
+    void testJpa();
+
+    void testJpql();
+
 }
