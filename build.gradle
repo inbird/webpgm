@@ -45,6 +45,9 @@ dependencies {
 	//JPA 관련 의존성 추가
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
+	//JSON parsing을 위한 json-simple 의존성 추가
+	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
 }
 
 tasks.named('test') {
