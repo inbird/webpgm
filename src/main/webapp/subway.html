@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON TEST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        function request1(){
+            $.ajax({
+                url: "http://localhost:8080/json/test1",
+                type: "POST",
+                success : function(data){
+                    //alert(data.userId + " " + data.userName + " " + data.userAge);
+                    $('#result1').text(data.userId + ", " + data.userName + ", " + data.userAge);
+                },
+                error :function(){
+                    alert("request error!");
+                }
+
+            });
+        }
+
+        function request2() {
+            $.ajax({
+                url: "http://localhost:8080/json/test2",
+                type: "POST",
+
+                success : function(data){
+                    let strResult = data.strResult;
+                    let totalCnt = data.totalCnt;
+                    let memberList = data.memberList;
+                    let result ="";
+                    result = "처리결과:" + strResult + ", 총갯수:" + totalCnt + "<br/>";
+
+                    for(var i=0; i< memberList.length; i++) {
+                        result += memberList[i].userId + ", " + memberList[i].userName + ", " + memberList[i].userAge + "<br/>";
+                    }
+
+                    result2.innerHTML = result;
+
+                },
+                error :function(){
+                    alert("request error!");
+                }
+            });
+        }
+
+        function request3() {
+            let result = "";
+            $.ajax({
+                url: "http://localhost:8080/json/test3",
+                type: "POST",
+                success: function (data) {
+                    $(data).each(function () {
+                        result += this.userId + ", " + this.userName + ", " + this.userAge + "<br>";
+                    });
+                    result3.innerHTML = result;
+                },
+                error: function () {
+                    alert("request error!");
+                }
+            });
+        }
+
+        function request4() {
+            let inputText = $("#stnName").val();
+            document.subway.hidStnName.value = inputText;
+            //var param = $("#subway").serialize();
+
+            $.ajax({
+                url: "http://localhost:8080/json/findSubway",
+                type: "POST",
+                data : ({"stnText" : inputText }),
+                //data : param,
+                dataType : "JSON",
+
+                success: function (data) {
+                    let subwayDTOList = data.subwayDTOList;
+                    let lineDTOList = data.lineDTOList;
+
+                    let subwayInfo = "";
+                    let lineInfo = "";
+
+                    for(var i=0; i< lineDTOList.length; i++) {
+                        lineInfo += " | <a href='javascript:void(0);' onClick=\"request5('" + lineDTOList[i].lineNumber + "');\">" + lineDTOList[i].lineName + "</a>" ;
+                    }
+                    for(var i=0; i< subwayDTOList.length; i++) {
+                        subwayInfo += subwayDTOList[i].trainLineNm + ", " + subwayDTOList[i].arvlMsg3 + ", " + subwayDTOList[i].arvlMsg2 + ", " + subwayDTOList[i].barvlDt + "초후 도착<br>";
+                    }
+                    result4.innerHTML = lineInfo;
+                    result5.innerHTML = subwayInfo;
+                },
+                error: function () {
+                    alert("request error!");
+                }
+            });
+        }
+
+        function request5(lineNo) {
+            let subwayId = lineNo;
+            let inputText = document.subway.hidStnName.value;
+            let result = "";
+
+            $.ajax({
+                url: "http://localhost:8080/json/findSubway2",
+                type: "POST",
+                data : ({"stnText" : inputText, "subwayId" : subwayId }),
+                dataType : "JSON",
+
+                success: function (data) {
+                    $(data).each(function () {
+                        result += this.trainLineNm + ", " + this.arvlMsg3 + ", " + this.arvlMsg2 + ", " + this.barvlDt + "초후 도착<br>";
+                    });
+                    result5.innerHTML = result;
+                },
+                error: function () {
+                    alert("request error!");
+                }
+            });
+        }
+
+    </script>
+
+</head>
+<body>
+1. 일반 class(VO, DTO) 호출
+<input type="button" onclick="request1()" value="ClassCall"> <br>
+<p id="result1"></p><br><br>
+
+2. Map 호출
+<input type="button" onclick="request2()" value="MapCall"> <br>
+<p id="result2"></p><br><br>
+
+3. List 호출
+<input type="button" onclick="request3()" value="ListCall"> <br>
+<p id="result3"></p><br><br>
+
+4. 역명 검색
+<form name="subway" method="post">
+    <input type="text" id="stnName"> <input type="button"  onclick="request4()" value="검색">
+    <input type="hidden" id="hidStnName">
+</form>
+<p id="result4"></p><br><br>
+<p id="result5"></p><br><br>
+</body>
+</html>
