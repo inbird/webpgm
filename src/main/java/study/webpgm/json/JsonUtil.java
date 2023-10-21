@@ -31,7 +31,6 @@ public class JsonUtil {
             JSONObject jsonSubway = (JSONObject) o;
             subwayDTOList.add(makeDTO(jsonSubway));
             set.add( (String) jsonSubway.get("subwayId") );
-            //lineDTOList.add( makeLineDTO( (String) jsonSubway.get("subwayId") ));
         }
 
         Iterator<String> iterator = set.iterator();

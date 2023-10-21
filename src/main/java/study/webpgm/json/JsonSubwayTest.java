@@ -52,7 +52,7 @@ public class JsonSubwayTest {
     }
 
     @RequestMapping("/json/test3")
-    public List<Member>jsonTest3() {
+    public List<Member> jsonTest3() {
         Member member1 = new Member("ID1", "NAME1", 10);
         Member member2 = new Member("ID2", "NAME2", 20);
         Member member3 = new Member("ID3", "NAME3", 30);
